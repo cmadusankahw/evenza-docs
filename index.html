@@ -774,6 +774,76 @@ margin-bottom: 20px;
     }
   }
 };
+        defs["createService"] = {
+  "required" : [ "available_appoints", "available_bookings", "business_name", "capacity", "description", "no_of_appoints", "no_of_bookings", "no_of_ratings", "pay_on_meet", "promotions", "rate", "rate_type", "rating", "reviews", "service_category", "service_name" ],
+  "properties" : {
+    "service_name" : {
+      "type" : "string",
+      "example" : "Dream Photography"
+    },
+    "service_category" : {
+      "type" : "string",
+      "example" : "Photography"
+    },
+    "description" : {
+      "type" : "string",
+      "example" : "sample description"
+    },
+    "available_bookings" : {
+      "type" : "boolean",
+      "example" : true
+    },
+    "available_appoints" : {
+      "type" : "boolean",
+      "example" : true
+    },
+    "rating" : {
+      "type" : "number",
+      "example" : 3.2
+    },
+    "business_name" : {
+      "type" : "string",
+      "example" : "Digital Eye"
+    },
+    "reviews" : {
+      "type" : "object",
+      "properties" : { }
+    },
+    "promotions" : {
+      "type" : "object",
+      "example" : { },
+      "properties" : { }
+    },
+    "no_of_ratings" : {
+      "type" : "number",
+      "example" : 3.2
+    },
+    "no_of_bookings" : {
+      "type" : "number",
+      "example" : 3.2
+    },
+    "no_of_appoints" : {
+      "type" : "number",
+      "example" : 3.2
+    },
+    "capacity" : {
+      "type" : "number",
+      "example" : 2.0
+    },
+    "rate" : {
+      "type" : "number",
+      "example" : 490.0
+    },
+    "rate_type" : {
+      "type" : "string",
+      "example" : "/Day"
+    },
+    "pay_on_meet" : {
+      "type" : "boolean",
+      "example" : true
+    }
+  }
+};
         defs["publishEvent"] = {
   "type" : "object",
   "properties" : {
@@ -806,6 +876,16 @@ margin-bottom: 20px;
       "type" : "string",
       "format" : "uuid",
       "example" : "U22"
+    }
+  }
+};
+        defs["removeService"] = {
+  "type" : "object",
+  "properties" : {
+    "service_id" : {
+      "type" : "string",
+      "format" : "uuid",
+      "example" : "S02"
     }
   }
 };
@@ -991,6 +1071,25 @@ margin-bottom: 20px;
                     <li data-group="Event" data-name="updateEventDetails" class="">
                       <a href="#api-Event-updateEventDetails">updateEventDetails</a>
                     </li>
+                  <li class="nav-header" data-group="Service"><a href="#api-Service">API Methods - Service</a></li>
+                    <li data-group="Service" data-name="createService" class="">
+                      <a href="#api-Service-createService">createService</a>
+                    </li>
+                    <li data-group="Service" data-name="editService" class="">
+                      <a href="#api-Service-editService">editService</a>
+                    </li>
+                    <li data-group="Service" data-name="getAllServices" class="">
+                      <a href="#api-Service-getAllServices">getAllServices</a>
+                    </li>
+                    <li data-group="Service" data-name="getServiceProviderSerices" class="">
+                      <a href="#api-Service-getServiceProviderSerices">getServiceProviderSerices</a>
+                    </li>
+                    <li data-group="Service" data-name="getSingleService" class="">
+                      <a href="#api-Service-getSingleService">getSingleService</a>
+                    </li>
+                    <li data-group="Service" data-name="removeService" class="">
+                      <a href="#api-Service-removeService">removeService</a>
+                    </li>
           </ul>
         </nav>
       </div>
@@ -1006,7 +1105,7 @@ margin-bottom: 20px;
             <h2 id="welcome-to-apidoc">API and SDK Documentation</h2>
               <div class="app-desc">Version: 1.0.0</div>
             <hr>
-            <div>Welcome to Eveenza API Documentation</div>
+            <div>Welcome to Eveenza API Documentation. This docmentation consist of all public and Authorized API Calls handled through Evenza system. | Developed and Mantained by  Chiran Hewawitharana, All Rights reserved</div>
           </div>
         </div>
         <div id="sections">
@@ -4739,6 +4838,1502 @@ $(document).ready(function() {
 
                           <h2>Responses</h2>
                             <h3> Status: 200 - Event Update Successfull </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: 500 - Internal Server error. Not Successful </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
+                  </section>
+                <section id="api-Service">
+                  <h1>Service</h1>
+                    <div id="api-Service-createService">
+                      <article id="api-Service-createService-0" data-group="User" data-name="createService" data-version="0">
+                        <div class="pull-left">
+                          <h1>createService</h1>
+                          <p>Add new Service</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/service/add</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Service-createService-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Service-createService-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Service-createService-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Service-createService-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Service-createService-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Service-createService-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Service-createService-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Service-createService-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Service-createService-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Service-createService-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Service-createService-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Service-createService-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X POST "https://virtserver.swaggerhub.com/E5251/evenza/1.0.0/service/add"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Service-createService-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.ServiceApi;
+
+import java.io.File;
+import java.util.*;
+
+public class ServiceApiExample {
+
+    public static void main(String[] args) {
+        
+        ServiceApi apiInstance = new ServiceApi();
+        CreateService createService = ; // CreateService | Update Event details
+        try {
+            apiInstance.createService(createService);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ServiceApi#createService");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Service-createService-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.ServiceApi;
+
+public class ServiceApiExample {
+
+    public static void main(String[] args) {
+        ServiceApi apiInstance = new ServiceApi();
+        CreateService createService = ; // CreateService | Update Event details
+        try {
+            apiInstance.createService(createService);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ServiceApi#createService");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Service-createService-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Service-createService-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">CreateService *createService = ; // Update Event details (optional)
+
+ServiceApi *apiInstance = [[ServiceApi alloc] init];
+
+// Add new Service
+[apiInstance createServiceWith:createService
+              completionHandler: ^(NSError* error) {
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Service-createService-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var EvenzaApiDocumentation = require('evenza___api_documentation');
+
+var api = new EvenzaApiDocumentation.ServiceApi()
+
+var opts = { 
+  'createService':  // {CreateService} Update Event details
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+api.createService(opts, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Service-createService-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Service-createService-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class createServiceExample
+    {
+        public void main()
+        {
+            
+            var apiInstance = new ServiceApi();
+            var createService = new CreateService(); // CreateService | Update Event details (optional) 
+
+            try
+            {
+                // Add new Service
+                apiInstance.createService(createService);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ServiceApi.createService: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Service-createService-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\Api\ServiceApi();
+$createService = ; // CreateService | Update Event details
+
+try {
+    $api_instance->createService($createService);
+} catch (Exception $e) {
+    echo 'Exception when calling ServiceApi->createService: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Service-createService-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::ServiceApi;
+
+my $api_instance = WWW::SwaggerClient::ServiceApi->new();
+my $createService = WWW::SwaggerClient::Object::CreateService->new(); # CreateService | Update Event details
+
+eval { 
+    $api_instance->createService(createService => $createService);
+};
+if ($@) {
+    warn "Exception when calling ServiceApi->createService: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Service-createService-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.ServiceApi()
+createService =  # CreateService | Update Event details (optional)
+
+try: 
+    # Add new Service
+    api_instance.create_service(createService=createService)
+except ApiException as e:
+    print("Exception when calling ServiceApi->createService: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+                            <div class="methodsubtabletitle">Body parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">createService </td>
+<td>
+
+
+<script>
+$(document).ready(function() {
+  var schemaWrapper = {
+  "in" : "body",
+  "name" : "createService",
+  "description" : "Update Event details",
+  "required" : false,
+  "schema" : {
+    "$ref" : "#/definitions/createService"
+  }
+};
+  var schema = schemaWrapper.schema;
+  if (schema.$ref != null) {
+    schema = defsParser.$refs.get(schema.$ref);
+  } else {
+    schemaWrapper.definitions = Object.assign({}, defs);
+    $RefParser.dereference(schemaWrapper).catch(function(err) {
+      console.log(err);
+    });
+  }
+
+  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
+  var result = $('#d2e199_createService_createService');
+  result.empty();
+  result.append(view.render());
+});
+</script>
+<div id="d2e199_createService_createService"></div>
+</td>
+</tr>
+
+                            </table>
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - Service successfully Created </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: 500 - Internal Server error. Not Successful </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Service-editService">
+                      <article id="api-Service-editService-0" data-group="User" data-name="editService" data-version="0">
+                        <div class="pull-left">
+                          <h1>editService</h1>
+                          <p>Edit/ update Service details</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/service/edit</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Service-editService-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Service-editService-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Service-editService-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Service-editService-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Service-editService-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Service-editService-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Service-editService-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Service-editService-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Service-editService-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Service-editService-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Service-editService-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Service-editService-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X POST "https://virtserver.swaggerhub.com/E5251/evenza/1.0.0/service/edit"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Service-editService-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.ServiceApi;
+
+import java.io.File;
+import java.util.*;
+
+public class ServiceApiExample {
+
+    public static void main(String[] args) {
+        
+        ServiceApi apiInstance = new ServiceApi();
+        CreateService updateService = ; // CreateService | Update Event details
+        try {
+            apiInstance.editService(updateService);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ServiceApi#editService");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Service-editService-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.ServiceApi;
+
+public class ServiceApiExample {
+
+    public static void main(String[] args) {
+        ServiceApi apiInstance = new ServiceApi();
+        CreateService updateService = ; // CreateService | Update Event details
+        try {
+            apiInstance.editService(updateService);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ServiceApi#editService");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Service-editService-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Service-editService-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">CreateService *updateService = ; // Update Event details (optional)
+
+ServiceApi *apiInstance = [[ServiceApi alloc] init];
+
+// Edit/ update Service details
+[apiInstance editServiceWith:updateService
+              completionHandler: ^(NSError* error) {
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Service-editService-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var EvenzaApiDocumentation = require('evenza___api_documentation');
+
+var api = new EvenzaApiDocumentation.ServiceApi()
+
+var opts = { 
+  'updateService':  // {CreateService} Update Event details
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+api.editService(opts, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Service-editService-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Service-editService-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class editServiceExample
+    {
+        public void main()
+        {
+            
+            var apiInstance = new ServiceApi();
+            var updateService = new CreateService(); // CreateService | Update Event details (optional) 
+
+            try
+            {
+                // Edit/ update Service details
+                apiInstance.editService(updateService);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ServiceApi.editService: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Service-editService-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\Api\ServiceApi();
+$updateService = ; // CreateService | Update Event details
+
+try {
+    $api_instance->editService($updateService);
+} catch (Exception $e) {
+    echo 'Exception when calling ServiceApi->editService: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Service-editService-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::ServiceApi;
+
+my $api_instance = WWW::SwaggerClient::ServiceApi->new();
+my $updateService = WWW::SwaggerClient::Object::CreateService->new(); # CreateService | Update Event details
+
+eval { 
+    $api_instance->editService(updateService => $updateService);
+};
+if ($@) {
+    warn "Exception when calling ServiceApi->editService: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Service-editService-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.ServiceApi()
+updateService =  # CreateService | Update Event details (optional)
+
+try: 
+    # Edit/ update Service details
+    api_instance.edit_service(updateService=updateService)
+except ApiException as e:
+    print("Exception when calling ServiceApi->editService: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+                            <div class="methodsubtabletitle">Body parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">updateService </td>
+<td>
+
+
+<script>
+$(document).ready(function() {
+  var schemaWrapper = {
+  "in" : "body",
+  "name" : "updateService",
+  "description" : "Update Event details",
+  "required" : false,
+  "schema" : {
+    "$ref" : "#/definitions/createService"
+  }
+};
+  var schema = schemaWrapper.schema;
+  if (schema.$ref != null) {
+    schema = defsParser.$refs.get(schema.$ref);
+  } else {
+    schemaWrapper.definitions = Object.assign({}, defs);
+    $RefParser.dereference(schemaWrapper).catch(function(err) {
+      console.log(err);
+    });
+  }
+
+  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
+  var result = $('#d2e199_editService_updateService');
+  result.empty();
+  result.append(view.render());
+});
+</script>
+<div id="d2e199_editService_updateService"></div>
+</td>
+</tr>
+
+                            </table>
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - Service successfully Updated </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: 500 - Internal Server error. Not Successful </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Service-getAllServices">
+                      <article id="api-Service-getAllServices-0" data-group="User" data-name="getAllServices" data-version="0">
+                        <div class="pull-left">
+                          <h1>getAllServices</h1>
+                          <p>Get list of All Services</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/service/get</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Service-getAllServices-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Service-getAllServices-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Service-getAllServices-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Service-getAllServices-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Service-getAllServices-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Service-getAllServices-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Service-getAllServices-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Service-getAllServices-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Service-getAllServices-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Service-getAllServices-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Service-getAllServices-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Service-getAllServices-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://virtserver.swaggerhub.com/E5251/evenza/1.0.0/service/get"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Service-getAllServices-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.ServiceApi;
+
+import java.io.File;
+import java.util.*;
+
+public class ServiceApiExample {
+
+    public static void main(String[] args) {
+        
+        ServiceApi apiInstance = new ServiceApi();
+        try {
+            apiInstance.getAllServices();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ServiceApi#getAllServices");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Service-getAllServices-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.ServiceApi;
+
+public class ServiceApiExample {
+
+    public static void main(String[] args) {
+        ServiceApi apiInstance = new ServiceApi();
+        try {
+            apiInstance.getAllServices();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ServiceApi#getAllServices");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Service-getAllServices-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Service-getAllServices-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">
+ServiceApi *apiInstance = [[ServiceApi alloc] init];
+
+// Get list of All Services
+[apiInstance getAllServicesWithCompletionHandler: 
+              ^(NSError* error) {
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Service-getAllServices-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var EvenzaApiDocumentation = require('evenza___api_documentation');
+
+var api = new EvenzaApiDocumentation.ServiceApi()
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+api.getAllServices(callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Service-getAllServices-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Service-getAllServices-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class getAllServicesExample
+    {
+        public void main()
+        {
+            
+            var apiInstance = new ServiceApi();
+
+            try
+            {
+                // Get list of All Services
+                apiInstance.getAllServices();
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ServiceApi.getAllServices: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Service-getAllServices-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\Api\ServiceApi();
+
+try {
+    $api_instance->getAllServices();
+} catch (Exception $e) {
+    echo 'Exception when calling ServiceApi->getAllServices: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Service-getAllServices-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::ServiceApi;
+
+my $api_instance = WWW::SwaggerClient::ServiceApi->new();
+
+eval { 
+    $api_instance->getAllServices();
+};
+if ($@) {
+    warn "Exception when calling ServiceApi->getAllServices: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Service-getAllServices-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.ServiceApi()
+
+try: 
+    # Get list of All Services
+    api_instance.get_all_services()
+except ApiException as e:
+    print("Exception when calling ServiceApi->getAllServices: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - Service List Recieved Successfully </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: 500 - Internal Server error. Not Successful </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Service-getServiceProviderSerices">
+                      <article id="api-Service-getServiceProviderSerices-0" data-group="User" data-name="getServiceProviderSerices" data-version="0">
+                        <div class="pull-left">
+                          <h1>getServiceProviderSerices</h1>
+                          <p>Get list of All published Events</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked">Service Provider Id is validated by backend token data</p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/service/get/sp</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Service-getServiceProviderSerices-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Service-getServiceProviderSerices-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Service-getServiceProviderSerices-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Service-getServiceProviderSerices-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Service-getServiceProviderSerices-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Service-getServiceProviderSerices-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Service-getServiceProviderSerices-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Service-getServiceProviderSerices-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Service-getServiceProviderSerices-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Service-getServiceProviderSerices-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Service-getServiceProviderSerices-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Service-getServiceProviderSerices-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://virtserver.swaggerhub.com/E5251/evenza/1.0.0/service/get/sp"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Service-getServiceProviderSerices-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.ServiceApi;
+
+import java.io.File;
+import java.util.*;
+
+public class ServiceApiExample {
+
+    public static void main(String[] args) {
+        
+        ServiceApi apiInstance = new ServiceApi();
+        try {
+            apiInstance.getServiceProviderSerices();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ServiceApi#getServiceProviderSerices");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Service-getServiceProviderSerices-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.ServiceApi;
+
+public class ServiceApiExample {
+
+    public static void main(String[] args) {
+        ServiceApi apiInstance = new ServiceApi();
+        try {
+            apiInstance.getServiceProviderSerices();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ServiceApi#getServiceProviderSerices");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Service-getServiceProviderSerices-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Service-getServiceProviderSerices-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">
+ServiceApi *apiInstance = [[ServiceApi alloc] init];
+
+// Get list of All published Events
+[apiInstance getServiceProviderSericesWithCompletionHandler: 
+              ^(NSError* error) {
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Service-getServiceProviderSerices-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var EvenzaApiDocumentation = require('evenza___api_documentation');
+
+var api = new EvenzaApiDocumentation.ServiceApi()
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+api.getServiceProviderSerices(callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Service-getServiceProviderSerices-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Service-getServiceProviderSerices-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class getServiceProviderSericesExample
+    {
+        public void main()
+        {
+            
+            var apiInstance = new ServiceApi();
+
+            try
+            {
+                // Get list of All published Events
+                apiInstance.getServiceProviderSerices();
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ServiceApi.getServiceProviderSerices: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Service-getServiceProviderSerices-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\Api\ServiceApi();
+
+try {
+    $api_instance->getServiceProviderSerices();
+} catch (Exception $e) {
+    echo 'Exception when calling ServiceApi->getServiceProviderSerices: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Service-getServiceProviderSerices-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::ServiceApi;
+
+my $api_instance = WWW::SwaggerClient::ServiceApi->new();
+
+eval { 
+    $api_instance->getServiceProviderSerices();
+};
+if ($@) {
+    warn "Exception when calling ServiceApi->getServiceProviderSerices: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Service-getServiceProviderSerices-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.ServiceApi()
+
+try: 
+    # Get list of All published Events
+    api_instance.get_service_provider_serices()
+except ApiException as e:
+    print("Exception when calling ServiceApi->getServiceProviderSerices: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - Service List Recieved Successfully </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: 500 - Internal Server error. Not Successful </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Service-getSingleService">
+                      <article id="api-Service-getSingleService-0" data-group="User" data-name="getSingleService" data-version="0">
+                        <div class="pull-left">
+                          <h1>getSingleService</h1>
+                          <p>Get details of a Service</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/service/get/:id</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Service-getSingleService-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Service-getSingleService-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Service-getSingleService-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Service-getSingleService-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Service-getSingleService-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Service-getSingleService-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Service-getSingleService-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Service-getSingleService-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Service-getSingleService-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Service-getSingleService-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Service-getSingleService-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Service-getSingleService-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://virtserver.swaggerhub.com/E5251/evenza/1.0.0/service/get/:id"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Service-getSingleService-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.ServiceApi;
+
+import java.io.File;
+import java.util.*;
+
+public class ServiceApiExample {
+
+    public static void main(String[] args) {
+        
+        ServiceApi apiInstance = new ServiceApi();
+        String service Id = service Id_example; // String | :id - Service Id
+        try {
+            apiInstance.getSingleService(service Id);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ServiceApi#getSingleService");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Service-getSingleService-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.ServiceApi;
+
+public class ServiceApiExample {
+
+    public static void main(String[] args) {
+        ServiceApi apiInstance = new ServiceApi();
+        String service Id = service Id_example; // String | :id - Service Id
+        try {
+            apiInstance.getSingleService(service Id);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ServiceApi#getSingleService");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Service-getSingleService-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Service-getSingleService-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">String *service Id = service Id_example; // :id - Service Id (optional)
+
+ServiceApi *apiInstance = [[ServiceApi alloc] init];
+
+// Get details of a Service
+[apiInstance getSingleServiceWith:service Id
+              completionHandler: ^(NSError* error) {
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Service-getSingleService-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var EvenzaApiDocumentation = require('evenza___api_documentation');
+
+var api = new EvenzaApiDocumentation.ServiceApi()
+
+var opts = { 
+  'service Id': service Id_example // {String} :id - Service Id
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+api.getSingleService(opts, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Service-getSingleService-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Service-getSingleService-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class getSingleServiceExample
+    {
+        public void main()
+        {
+            
+            var apiInstance = new ServiceApi();
+            var service Id = service Id_example;  // String | :id - Service Id (optional) 
+
+            try
+            {
+                // Get details of a Service
+                apiInstance.getSingleService(service Id);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ServiceApi.getSingleService: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Service-getSingleService-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\Api\ServiceApi();
+$service Id = service Id_example; // String | :id - Service Id
+
+try {
+    $api_instance->getSingleService($service Id);
+} catch (Exception $e) {
+    echo 'Exception when calling ServiceApi->getSingleService: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Service-getSingleService-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::ServiceApi;
+
+my $api_instance = WWW::SwaggerClient::ServiceApi->new();
+my $service Id = service Id_example; # String | :id - Service Id
+
+eval { 
+    $api_instance->getSingleService(service Id => $service Id);
+};
+if ($@) {
+    warn "Exception when calling ServiceApi->getSingleService: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Service-getSingleService-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.ServiceApi()
+service Id = service Id_example # String | :id - Service Id (optional)
+
+try: 
+    # Get details of a Service
+    api_instance.get_single_service(service Id=service Id)
+except ApiException as e:
+    print("Exception when calling ServiceApi->getSingleService: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+                            <div class="methodsubtabletitle">Header parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                  <tr><td style="width:150px;">Service Id</td>
+<td>
+
+
+    <div id="d2e199_getSingleService_service Id">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description">
+                        :id - Service Id
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                            </table>
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - Service Details Recieved Successfully </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: 500 - Internal Server error. Not Successful </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Service-removeService">
+                      <article id="api-Service-removeService-0" data-group="User" data-name="removeService" data-version="0">
+                        <div class="pull-left">
+                          <h1>removeService</h1>
+                          <p>Remove a Service</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/service/remove</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Service-removeService-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Service-removeService-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Service-removeService-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Service-removeService-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Service-removeService-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Service-removeService-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Service-removeService-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Service-removeService-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Service-removeService-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Service-removeService-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Service-removeService-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Service-removeService-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X DELETE "https://virtserver.swaggerhub.com/E5251/evenza/1.0.0/service/remove"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Service-removeService-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.ServiceApi;
+
+import java.io.File;
+import java.util.*;
+
+public class ServiceApiExample {
+
+    public static void main(String[] args) {
+        
+        ServiceApi apiInstance = new ServiceApi();
+        RemoveService removeMerchant = ; // RemoveService | Remove a Service
+        try {
+            apiInstance.removeService(removeMerchant);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ServiceApi#removeService");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Service-removeService-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.ServiceApi;
+
+public class ServiceApiExample {
+
+    public static void main(String[] args) {
+        ServiceApi apiInstance = new ServiceApi();
+        RemoveService removeMerchant = ; // RemoveService | Remove a Service
+        try {
+            apiInstance.removeService(removeMerchant);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ServiceApi#removeService");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Service-removeService-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Service-removeService-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">RemoveService *removeMerchant = ; // Remove a Service (optional)
+
+ServiceApi *apiInstance = [[ServiceApi alloc] init];
+
+// Remove a Service
+[apiInstance removeServiceWith:removeMerchant
+              completionHandler: ^(NSError* error) {
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Service-removeService-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var EvenzaApiDocumentation = require('evenza___api_documentation');
+
+var api = new EvenzaApiDocumentation.ServiceApi()
+
+var opts = { 
+  'removeMerchant':  // {RemoveService} Remove a Service
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+api.removeService(opts, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Service-removeService-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Service-removeService-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class removeServiceExample
+    {
+        public void main()
+        {
+            
+            var apiInstance = new ServiceApi();
+            var removeMerchant = new RemoveService(); // RemoveService | Remove a Service (optional) 
+
+            try
+            {
+                // Remove a Service
+                apiInstance.removeService(removeMerchant);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ServiceApi.removeService: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Service-removeService-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\Api\ServiceApi();
+$removeMerchant = ; // RemoveService | Remove a Service
+
+try {
+    $api_instance->removeService($removeMerchant);
+} catch (Exception $e) {
+    echo 'Exception when calling ServiceApi->removeService: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Service-removeService-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::ServiceApi;
+
+my $api_instance = WWW::SwaggerClient::ServiceApi->new();
+my $removeMerchant = WWW::SwaggerClient::Object::RemoveService->new(); # RemoveService | Remove a Service
+
+eval { 
+    $api_instance->removeService(removeMerchant => $removeMerchant);
+};
+if ($@) {
+    warn "Exception when calling ServiceApi->removeService: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Service-removeService-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.ServiceApi()
+removeMerchant =  # RemoveService | Remove a Service (optional)
+
+try: 
+    # Remove a Service
+    api_instance.remove_service(removeMerchant=removeMerchant)
+except ApiException as e:
+    print("Exception when calling ServiceApi->removeService: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+                            <div class="methodsubtabletitle">Body parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">removeMerchant </td>
+<td>
+
+
+<script>
+$(document).ready(function() {
+  var schemaWrapper = {
+  "in" : "body",
+  "name" : "removeMerchant",
+  "description" : "Remove a Service",
+  "required" : false,
+  "schema" : {
+    "$ref" : "#/definitions/removeService"
+  }
+};
+  var schema = schemaWrapper.schema;
+  if (schema.$ref != null) {
+    schema = defsParser.$refs.get(schema.$ref);
+  } else {
+    schemaWrapper.definitions = Object.assign({}, defs);
+    $RefParser.dereference(schemaWrapper).catch(function(err) {
+      console.log(err);
+    });
+  }
+
+  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
+  var result = $('#d2e199_removeService_removeMerchant');
+  result.empty();
+  result.append(view.render());
+});
+</script>
+<div id="d2e199_removeService_removeMerchant"></div>
+</td>
+</tr>
+
+                            </table>
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - Service removed </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
                             </ul>
